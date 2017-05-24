@@ -1,0 +1,17 @@
+{
+  "name": "flood-generator-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^4.0.5",
+    "twitter": "^1.7.0",
+    "underscore.string": "^3.3.4"
+  }
+}
