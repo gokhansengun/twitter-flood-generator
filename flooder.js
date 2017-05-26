@@ -9,6 +9,8 @@ exports.run = function(client, statuses) {
             console.log('Updating status: ' + status);
             return updateStatus(client, status, in_reply_to_status_id); 
         }).catch(function (error) {
+            error.forEach(e => console.log("Error detail - code: " + e.code + " msg: " + e.message))
+
             console.log("An error occurred");
             process.exit(1);
         });
