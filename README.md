@@ -42,7 +42,7 @@ Generating a Twitter flood is simple.
     TWITTER_ACCESS_TOKEN_SECRET=xxxx
     ```
 
-2. Build the `dockerfile` of the project:
+2. Build the `dockerfile` of the project (Optional, you can use `gsengun/twitter-flood` image from DockerHub):
 
     ```
     $ docker build -f Dockerfile -t tfg .
@@ -57,9 +57,12 @@ Generating a Twitter flood is simple.
     Ov yeah!
     ```
 
-4. After building the image, make a container tweeting the text on twitter on behalf of you:
+4. After building the image or just using existing docker image `gsengun/twitter-flood`, make a container tweeting the text on twitter on behalf of you:
 
     ```
     $ docker run --rm --env-file twitter.env -v $(pwd)/mytext:/mytext tfg:latest /mytext
+    Updating status: Ov yeah!
+    
+    $ docker run --rm --env-file twitter.env -v $(pwd)/mytext:/mytext gsengun/twitter-flood:latest /mytext
     Updating status: Ov yeah!
     ```
