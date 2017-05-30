@@ -31,6 +31,12 @@ Generating a Twitter flood is simple.
     $ node main.js -d <file_name>
     ```
 
+    Use `-r` option to reply to an existing tweet, useful when replying to somebody else or continuation of an old status.
+
+    ```bash
+    $ node main.js -r <status_id> -d <file_name>
+    ```
+
 ## Quick Start - Docker (thanks [@ozlerhakan](https://github.com/ozlerhakan))
 
 1. Create an env file (let's say `twitter.env`) that contains the following envs:

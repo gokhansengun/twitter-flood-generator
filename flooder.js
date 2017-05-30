@@ -1,10 +1,9 @@
-exports.run = function(client, statuses) {
-    var p = Promise.resolve({ id_str: '' });
-    var in_reply_to_status_id = '';
+exports.run = function(client, reply_to_status_id, statuses) {
+    var p = Promise.resolve({ id_str: reply_to_status_id });
 
     statuses.forEach(function(status) {
         p = p.then(function(tweet) {
-            in_reply_to_status_id = tweet.id_str;
+            var in_reply_to_status_id = tweet.id_str;
 
             console.log('Updating status: ' + status);
             return updateStatus(client, status, in_reply_to_status_id); 
