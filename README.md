@@ -19,19 +19,28 @@ Generating a Twitter flood is simple.
     export TWITTER_ACCESS_TOKEN_SECRET=xxxx
     ```
 
-3. Run below command to generate and post the Tweets.
+3. Produce the text file including the Tweet. Text in a paragraph will be divided into 140 char-chunks and Tweeted however **if you want a sentece to start a Tweet just use a new line before.**
+
+    Example, an input file like below will produce two Tweets although will fit to one due to new line
+
+    ```
+    This is the first line
+    This is the second line
+    ```
+
+4. Run below command to generate and post the Tweets.
 
     ```bash
     $ node main.js <file_name>
     ```
 
-    Use `-d` option to see how tweets like before posting it to twitter.
+    Use `-d` option to see how Tweets like before posting it to twitter.
 
     ```bash
     $ node main.js -d <file_name>
     ```
 
-    Use `-r` option to reply to an existing tweet, useful when replying to somebody else or continuation of an old status.
+    Use `-r` option to reply to an existing Tweet, useful when replying to somebody else or continuation of an old status.
 
     ```bash
     $ node main.js -r <status_id> -d <file_name>
@@ -63,7 +72,7 @@ Generating a Twitter flood is simple.
     Ov yeah!
     ```
 
-4. After building the image or just using existing docker image `gsengun/twitter-flood`, make a container tweeting the text on twitter on behalf of you:
+4. After building the image or just using existing docker image `gsengun/twitter-flood`, make a container Tweeting the text on twitter on behalf of you:
 
     ```
     $ docker run --rm --env-file twitter.env -v $(pwd)/mytext:/mytext tfg:latest /mytext

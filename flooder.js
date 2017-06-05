@@ -1,13 +1,13 @@
-exports.run = function(client, reply_to_status_id, statuses) {
+exports.run = (client, reply_to_status_id, statuses) => {
     var p = Promise.resolve({ id_str: reply_to_status_id });
 
-    statuses.forEach(function(status) {
-        p = p.then(function(tweet) {
+    statuses.forEach((status) => {
+        p = p.then((tweet) => {
             var in_reply_to_status_id = tweet.id_str;
 
             console.log('Updating status: ' + status);
             return updateStatus(client, status, in_reply_to_status_id); 
-        }).catch(function (error) {
+        }).catch((error) => {
             error.forEach(e => console.log("Error detail - code: " + e.code + " msg: " + e.message))
 
             console.log("An error occurred");
@@ -16,7 +16,7 @@ exports.run = function(client, reply_to_status_id, statuses) {
     });
 }
 
-updateStatus = function(client, status, in_reply_to_status_id) {
+updateStatus = (client, status, in_reply_to_status_id) => {
     return client.post('statuses/update', 
         {
             status: status,
