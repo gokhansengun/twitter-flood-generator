@@ -5,7 +5,7 @@ exports.run = (client, reply_to_status_id, statuses) => {
         p = p.then((tweet) => {
             var in_reply_to_status_id = tweet.id_str;
 
-            console.log('Updating status: ' + status);
+            this.dumpStatus(status)
             return updateStatus(client, status, in_reply_to_status_id); 
         }).catch((error) => {
             error.forEach(e => console.log("Error detail - code: " + e.code + " msg: " + e.message))
@@ -16,10 +16,20 @@ exports.run = (client, reply_to_status_id, statuses) => {
     });
 }
 
+exports.dumpStatus = (status) => {
+    if (status.media && status.text) {
+        console.log(`Updating status with text: ${status.text} and media ${status.media}`);
+    } else if (status.media) {
+        console.log(`Updating status with only media ${status.media}`);
+    } else { 
+        console.log(`Updating status with only text: ${status.text}`);
+    }
+}
+
 updateStatus = (client, status, in_reply_to_status_id) => {
     return client.post('statuses/update', 
         {
-            status: status,
+            status: status.text,
             in_reply_to_status_id: in_reply_to_status_id
         });
 }

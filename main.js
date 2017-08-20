@@ -26,7 +26,7 @@ fs.readFile(options.flood_file_name, 'utf8',
 
             flooder.run(client, options.reply_to_status_id, statuses);
         } else {
-            statuses.forEach(stat => console.log('Status: ' + stat));
+            statuses.forEach(stat => flooder.dumpStatus(stat));
         }
     });
 
