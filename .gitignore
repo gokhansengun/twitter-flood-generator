@@ -4,3 +4,4 @@ twitter-prod.env
 twitter-keys.env
 test-flood
 
+.vscode

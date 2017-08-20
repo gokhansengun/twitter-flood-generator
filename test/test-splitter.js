@@ -11,9 +11,9 @@ var singleLongLine3 = '01234 56789 012345';
 var multiLine1 = '01234 \n567';
 var multiLine2 = '01234567 01234\n012';
 var multiLine3 = '012\n345\n678\n\n\n';
-var multiLine4 = '012\nM:<test.png>0123456789';
-var multiLine5 = '012\nM:<test.png>';
-var multiLine6 = '012\nM:<test.png>012345678901';
+var multiLine4 = '012\nM:<./resources/test-images/test.png>0123456789';
+var multiLine5 = '012\nM:<./resources/test-images/test.png>';
+var multiLine6 = '012\nM:<./resources/test-images/test.png>012345678901';
 var multiLine7 = '012\nM:<does-not-exist.png>';
 
 var maxColumns = 10;
@@ -83,7 +83,7 @@ describe('Splits', () => {
         chai.assert(splittedStatuses[0].text === '012', 'Split error in long line');
         chai.assert(splittedStatuses[0].media === null, 'Split error in media part');
         chai.assert(splittedStatuses[1].text === '0123456789', 'Split error in long line');
-        chai.assert(splittedStatuses[1].media === 'test.png', 'Split error in media part');
+        chai.assert(splittedStatuses[1].media === './resources/test-images/test.png', 'Split error in media part');
 
         done();
     });
@@ -95,7 +95,7 @@ describe('Splits', () => {
         chai.assert(splittedStatuses[0].text === '012', 'Split error in long line');
         chai.assert(splittedStatuses[0].media === null, 'Split error in media part');
         chai.assert(splittedStatuses[1].text === null, 'Split error in media part');
-        chai.assert(splittedStatuses[1].media === 'test.png', 'Split error in media part');
+        chai.assert(splittedStatuses[1].media === './resources/test-images/test.png', 'Split error in media part');
 
         done();
     });
