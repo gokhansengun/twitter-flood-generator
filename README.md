@@ -28,6 +28,15 @@ Generating a Twitter flood is simple.
     This is the second line
     ```
 
+    In order to use media files, start a line in the input file with `M:<image-file-path>` and write the text that will be included with the image. If you would like to have no text with the image, do not add any text after the image input.
+
+    ```
+    This is the first line of a flood with media
+    M:<resources/test-images/test-image-1.jpg>Text that goes with the image
+    This is the third tweet indeed
+    M:<resources/test-images/test-image-2.png>
+    ```
+
 4. Run below command to generate and post the Tweets.
 
     ```bash
