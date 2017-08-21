@@ -14,7 +14,8 @@ const options = commandLineArgs(optionDefinitions);
 
 fs.readFile(options.flood_file_name, 'utf8', 
     function(err, data) {
-        var statuses = splitter.run(data, 140);
+        var flood_dir_name = require('path').dirname(options.flood_file_name);
+        var statuses = splitter.run(data, flood_dir_name, 140);
 
         if (!options.dry_run) {
             var client = new twitter({

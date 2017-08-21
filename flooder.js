@@ -29,11 +29,12 @@ exports.run = (client, reply_to_status_id, statuses) => {
 
 exports.dumpStatus = (status) => {
     if (status.media && status.text) {
-        console.log(`Updating status with text: ${status.text} and media ${status.media}`);
+        console.log(`Updating status(DT): ${status.text}`);
+        console.log(`Updating status(DM): ${status.media}`);
     } else if (status.media) {
-        console.log(`Updating status with only media ${status.media}`);
+        console.log(`Updating status(OM): ${status.media}`);
     } else { 
-        console.log(`Updating status with only text: ${status.text}`);
+        console.log(`Updating status(OT): ${status.text}`);
     }
 }
 

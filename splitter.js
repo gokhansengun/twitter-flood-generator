@@ -1,7 +1,7 @@
 var _ = require('underscore.string');
 var fs = require('fs');
 
-exports.run = (text, maxColumns) => {
+exports.run = (text, flood_dir_name, maxColumns) => {
     // first check text convert it into each paragraph
     var paragraphs = _.words(text, '\n');
     var statusList = [];
@@ -23,6 +23,8 @@ exports.run = (text, maxColumns) => {
             if (paragraph.length > maxColumns) {
                 throw new Error(`Status attached to the media can not exceed ${maxColumns} characters`)
             }
+
+            mediaPath = require('path').join(flood_dir_name, mediaPath);
 
             // Validate the media involved, if any not found, throw an error
             if (!fs.existsSync(mediaPath)) {
