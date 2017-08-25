@@ -1,3 +1,6 @@
+## Status
+[![Build Status](https://travis-ci.org/gokhansengun/twitter-flood-generator.svg?branch=master)](https://travis-ci.org/gokhansengun/twitter-flood-generator)
+
 ## Intro
 
 This simple command line utility is for generating Twitter Floods from a paragraph of text. It accepts the paragraph as file and divides it into 140-char chunks then posts to Twitter by replying to the previous post. So creates a flood like below.
