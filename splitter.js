@@ -10,7 +10,7 @@ exports.run = (text, flood_dir_name, maxColumns) => {
         paragraph = paragraph.trim();
 
         var mediaRegex = /^M:<(.*?)>(.*)/;
-        var metaRegex = /^META:<(.*)>/;
+        var metaRegex = /^META-(.*?):<(.*)>/;
         var mediaMatch = mediaRegex.exec(paragraph);
         var metaMatch = metaRegex.exec(paragraph);
         var mediaPath = null;
