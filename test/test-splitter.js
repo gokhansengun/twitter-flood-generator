@@ -15,7 +15,7 @@ var multiLine4 = '012\nM:<test.png>0123456789';
 var multiLine5 = '012\nM:<test.png>';
 var multiLine6 = '012\nM:<test.png>012345678901';
 var multiLine7 = '012\nM:<does-not-exist.png>';
-var multiLine8 = '012\nMETA:Title\n345';
+var multiLine8 = '012\nMETA:<Title:This is a blog>\n345';
 
 var maxColumns = 10;
 var floodDirName = './resources/test-images/'

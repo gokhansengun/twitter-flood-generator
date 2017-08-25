@@ -10,15 +10,22 @@ exports.run = (text, flood_dir_name, maxColumns) => {
         paragraph = paragraph.trim();
 
         var mediaRegex = /^M:<(.*?)>(.*)/;
-        var match = mediaRegex.exec(paragraph);
+        var metaRegex = /^META:<(.*)>/;
+        var mediaMatch = mediaRegex.exec(paragraph);
+        var metaMatch = metaRegex.exec(paragraph);
         var mediaPath = null;
 
+        // check whether there is a meta involved, if so skip
+        if (metaMatch != null) {
+           // skipping this line
+           ;
+        }
         // check whether there is a media involved
-        if (match != null) {
-            mediaPath = match[1];
+        else if (mediaMatch != null) {
+            mediaPath = mediaMatch[1];
 
             // Update the paragraph by trimming the media
-            paragraph = match[2];
+            paragraph = mediaMatch[2];
 
             if (paragraph.length > maxColumns) {
                 throw new Error(`Status attached to the media can not exceed ${maxColumns} characters`)
