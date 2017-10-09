@@ -43,7 +43,7 @@ exports.run = (text, flood_dir_name, maxColumns) => {
                 text: paragraph === '' ? null : paragraph
             })
         } else {
-            var foldedStr = _.wrap(paragraph, { width: maxColumns - 1, seperator: '\n', cut: false, trailingSpaces: false })
+            var foldedStr = _.wrap(paragraph, { width: maxColumns, seperator: '\n', cut: false, trailingSpaces: false })
 
             var splittedLines = _.words(foldedStr, '\n')
 

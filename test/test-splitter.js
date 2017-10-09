@@ -8,6 +8,8 @@ var singleLongLine1 = '012345678 012345';
 var singleLongLine2 = '0123456789 012345';
 var singleLongLine3 = '01234 56789 012345';
 
+var wholeTwoLines = '0123 56789 0123456789';
+
 var multiLine1 = '01234 \n567';
 var multiLine2 = '01234567 01234\n012';
 var multiLine3 = '012\n345\n678\n\n\n';
@@ -21,6 +23,16 @@ var maxColumns = 10;
 var floodDirName = './resources/test-images/'
 
 describe('Splits', () => {
+    it('should accept a whole line with 10 chars', (done) => {
+        var splittedStatuses = splitter.run(wholeTwoLines, floodDirName, maxColumns);
+
+        chai.assert(splittedStatuses.length === 2, "Wrong number of splits");
+        chai.assert(splittedStatuses[0].text === '0123 56789', 'Split error in whole line');
+        chai.assert(splittedStatuses[1].text === '0123456789', 'Split error in whole line');
+
+        done();
+    });
+
     it('should split a line longer than 10 chars into 10-char lines and remove trailing space', (done) => {
         var splittedStatuses = splitter.run(singleLongLine1, floodDirName, maxColumns);
 
