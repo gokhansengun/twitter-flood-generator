@@ -3,7 +3,7 @@
 
 ## Intro
 
-This simple command line utility is for generating Twitter Floods from a paragraph of text. It accepts the paragraph as file and divides it into 140-char chunks then posts to Twitter by replying to the previous post. So creates a flood like below.
+This simple command line utility is for generating Twitter Floods from a paragraph of text. It accepts the paragraph as file and divides it into 280-char chunks then posts to Twitter by replying to the previous post. So creates a flood like below.
 
 <img src="https://raw.github.com/gokhansengun/twitter-flood-generator/master/resources/example.png" width="640">
 
@@ -22,7 +22,7 @@ Generating a Twitter flood is simple.
     export TWITTER_ACCESS_TOKEN_SECRET=xxxx
     ```
 
-3. Produce the text file including the Tweet. Text in a paragraph will be divided into 140 char-chunks and Tweeted however **if you want a sentece to start a Tweet just use a new line before.**
+3. Produce the text file including the Tweet. Text in a paragraph will be divided into 280 char-chunks and Tweeted however **if you want a sentece to start a Tweet just use a new line before.**
 
     Example, an input file like below will produce two Tweets although will fit to one due to new line
 
