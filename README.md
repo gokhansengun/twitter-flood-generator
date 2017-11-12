@@ -58,6 +58,12 @@ Generating a Twitter flood is simple.
     $ node main.js -r <status_id> -d <file_name>
     ```
 
+    Use `-m` option to limit the number of characters per tweet if you think 280-chars are too many.
+
+    ```bash
+    $ node main.js -m 240 -d <file_name>
+    ```
+
 ## Quick Start - Docker (thanks [@ozlerhakan](https://github.com/ozlerhakan))
 
 1. Create an env file (let's say `twitter.env`) that contains the following envs:
